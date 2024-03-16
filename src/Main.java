@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("\n Task1 \n Реализуйте метод, который получает в качестве параметра год, проверяет, является ли он високосным.");
-        checkLeapYear(2024);
+        System.out.println(checkLeapYear(2023));
         System.out.println("\n Task2: \n Написать программу, которая выдает соответствующее сообщение клиенту при наличии двух условий.");
-        issuesMessages(1, 2024);
+        System.out.println(issuesMessages(1, 2024));
         System.out.println("\n Task3: \n Известить клиента о том, когда будет доставлена его карта");
-        int distance = calculateDay(61);
+        int distance = calculateDay(95);
         if (distance != -1) {
             System.out.println("Потребуется дней: " + distance);
         } else {
@@ -15,30 +15,30 @@ public class Main {
     }
 //     Метод, который получает в качестве параметра год, проверяет, является ли он високосным, и выводит результат в консоль.
 
-    public static void checkLeapYear(int year) {
+    public static String checkLeapYear(int year) {
 
         if ((year % 400) == 0 || (year % 4 == 0 && (year % 100) != 0 && year > 1584)) {
-            System.out.println(year + "год — високосный год.");
+            return (year + "год — високосный год.");
         } else
-            System.out.println(year + "год — невисокосный год.");
+            return (year + "год — невисокосный год.");
     }
 
 
-    public static void issuesMessages(int clientOS, int yearPhone) {
+    public static String issuesMessages(int clientOS, int yearPhone) {
         if (clientOS == 0) {
             if (yearPhone >= java.time.LocalDate.now().getYear()) {
-                System.out.println("Установите версию приложения для iOS по ссылке");
+                return "Установите версию приложения для iOS по ссылке";
             } else {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+                return "Установите облегченную версию приложения для iOS по ссылке";
             }
         } else if (clientOS == 1) {
             if (yearPhone >= java.time.LocalDate.now().getYear()) {
-                System.out.println("Установите версию приложения для Android по ссылке");
+                return "Установите версию приложения для Android по ссылке";
             } else {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                return "Установите облегченную версию приложения для Android по ссылке";
             }
         } else {
-            System.out.println("Неверная версия ОС");
+            return "Неверная версия ОС";
         }
     }
 
